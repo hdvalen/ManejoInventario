@@ -1,15 +1,20 @@
-using System;
 
 namespace ManejoInventario.Domain.Entities;
 
 public class Tercero
-{
-    public int Id { get; set; }
-    public string? Nombre { get; set; }
-    public string? Apellido { get; set; }
-    public string? Email { get; set; }
-    public int TipoDocumento_id { get; set; }
-    public int TipoTercero_id { get; set; }
-    public int Ciudad_id { get; set; }
-
-}
+    {
+        public string Id { get; set; } = string.Empty;
+        public string Nombre { get; set; } = string.Empty;
+        public string Apellidos { get; set; } = string.Empty;
+        public string Email { get; set; } = string.Empty;
+        public int Tipo_DocumentoId { get; set; }
+        public int Tipo_TerceroId { get; set; }
+        public int CiudadId { get; set; }
+        
+        public string Nombre_Completo => $"{Nombre} {Apellidos}";
+        
+        public override string ToString()
+        {
+            return $"ID: {Id}, Nombre: {Nombre_Completo}, Email: {Email}";
+        }
+    }
