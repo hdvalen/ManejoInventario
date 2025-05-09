@@ -1,5 +1,5 @@
 using MySql.Data.MySqlClient;
-using ManejoInventario.Config;
+using ManejoInventario.Application.Config;
 
 namespace ManejoInventario.Data
 {

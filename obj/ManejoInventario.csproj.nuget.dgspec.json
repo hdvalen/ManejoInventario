@@ -1,20 +1,20 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\ususario\\Documents\\Valentina\\campusland\\C_chart\\ManejoInventario\\ManejoInventario.csproj": {}
+    "/home/camper/Documentos/ManejoInventario/ManejoInventario.csproj": {}
   },
   "projects": {
-    "C:\\Users\\ususario\\Documents\\Valentina\\campusland\\C_chart\\ManejoInventario\\ManejoInventario.csproj": {
+    "/home/camper/Documentos/ManejoInventario/ManejoInventario.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\ususario\\Documents\\Valentina\\campusland\\C_chart\\ManejoInventario\\ManejoInventario.csproj",
+        "projectUniqueName": "/home/camper/Documentos/ManejoInventario/ManejoInventario.csproj",
         "projectName": "ManejoInventario",
-        "projectPath": "C:\\Users\\ususario\\Documents\\Valentina\\campusland\\C_chart\\ManejoInventario\\ManejoInventario.csproj",
-        "packagesPath": "C:\\Users\\ususario\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\ususario\\Documents\\Valentina\\campusland\\C_chart\\ManejoInventario\\obj\\",
+        "projectPath": "/home/camper/Documentos/ManejoInventario/ManejoInventario.csproj",
+        "packagesPath": "/home/camper/.nuget/packages/",
+        "outputPath": "/home/camper/Documentos/ManejoInventario/obj/",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "C:\\Users\\ususario\\AppData\\Roaming\\NuGet\\NuGet.Config"
+          "/home/camper/.nuget/NuGet/NuGet.Config"
         ],
         "originalTargetFrameworks": [
           "net8.0"
@@ -42,6 +42,12 @@
       "frameworks": {
         "net8.0": {
           "targetAlias": "net8.0",
+          "dependencies": {
+            "MySql.Data": {
+              "target": "Package",
+              "version": "[9.3.0, )"
+            }
+          },
           "imports": [
             "net461",
             "net462",
@@ -58,7 +64,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.408/PortableRuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "/usr/share/dotnet/sdk/8.0.408/PortableRuntimeIdentifierGraph.json"
         }
       }
     }

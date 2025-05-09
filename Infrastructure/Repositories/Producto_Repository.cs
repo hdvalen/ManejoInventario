@@ -1,8 +1,8 @@
 using MySql.Data.MySqlClient;
-using SGI.Data;
-using SGI.Models;
+using ManejoInventario.Domain.Entities;
+using ManejoInventario.Data;
 
-namespace SGI.Repositories
+namespace ManejoInventario.Repositories
 {
     public class Producto_Repository : IRepository<Producto>
     {
