@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "/home/camper/ManejoInventario/ManejoInventario.csproj": {}
+    "/home/camper/Documentos/aa/ManejoInventario/ManejoInventario.csproj": {}
   },
   "projects": {
-    "/home/camper/ManejoInventario/ManejoInventario.csproj": {
+    "/home/camper/Documentos/aa/ManejoInventario/ManejoInventario.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "/home/camper/ManejoInventario/ManejoInventario.csproj",
+        "projectUniqueName": "/home/camper/Documentos/aa/ManejoInventario/ManejoInventario.csproj",
         "projectName": "ManejoInventario",
-        "projectPath": "/home/camper/ManejoInventario/ManejoInventario.csproj",
+        "projectPath": "/home/camper/Documentos/aa/ManejoInventario/ManejoInventario.csproj",
         "packagesPath": "/home/camper/.nuget/packages/",
-        "outputPath": "/home/camper/ManejoInventario/obj/",
+        "outputPath": "/home/camper/Documentos/aa/ManejoInventario/obj/",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "/home/camper/.nuget/NuGet/NuGet.Config"
