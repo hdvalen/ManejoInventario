@@ -1,22 +1,24 @@
-
+using ManejoInventario.Domain.Entities;
+using MySql.Data.MySqlClient;
 using ManejoInventario.Data;
+
 
 namespace ManejoInventario.Repositories
 {
-    public class PlanRepository : IRepository<Plan>
+    public class PlanRepository : IRepository<Planes>
     {
-        public async Task<IEnumerable<Plan>> GetAllAsync()
+        public async Task<IEnumerable<Planes>> GetAllAsync()
         {
-            List<Plan> planes = new List<Plan>();
+            List<Planes> Planes = new List<Planes>();
             
             using (var DataBase = new DataBase())
             {
-                using var command = new MySqlCommand("SELECT * FROM plan", DataBase.Connection);
+                using var command = new MySqlCommand("SELECT * FROM Plan", DataBase.Connection);
                 using var reader = await command.ExecuteReaderAsync();
                 
                 while (await reader.ReadAsync())
                 {
-                    var plan = new Plan
+                    var Plan = new Planes
                     {
                         Id = Convert.ToInt32(reader["id"]),
                         Nombre = reader["nombre"].ToString()!,
@@ -25,33 +27,33 @@ namespace ManejoInventario.Repositories
                         Descuento = Convert.ToDecimal(reader["descuento"])
                     };
                     
-                    planes.Add(plan);
+                    Planes.Add(Plan);
                 }
             }
             
-            // Cargar los productos para cada plan
-            foreach (var plan in planes)
+            // Cargar los productos para cada Plan
+            foreach (var Plan in Planes)
             {
-                plan.Productos = (await GetProductosByPlanAsync(plan.Id)).ToList();
+                Plan.Productos = (await GetProductosByPlanAsync(Plan.Id)).ToList();
             }
             
-            return planes;
+            return Planes;
         }
 
-        public async Task<Plan?> GetByIdAsync(object id)
+        public async Task<Planes?> GetByIdAsync(object id)
         {
-            Plan? plan = null;
+            Planes? Plan = null;
             
             using (var DataBase = new DataBase())
             {
-                using var command = new MySqlCommand("SELECT * FROM plan WHERE id = @Id", DataBase.Connection);
+                using var command = new MySqlCommand("SELECT * FROM Plan WHERE id = @Id", DataBase.Connection);
                 command.Parameters.AddWithValue("@Id", id);
                 
                 using var reader = await command.ExecuteReaderAsync();
                 
                 if (await reader.ReadAsync())
                 {
-                    plan = new Plan
+                    Plan = new Planes
                     {
                         Id = Convert.ToInt32(reader["id"]),
                         Nombre = reader["nombre"].ToString()!,
@@ -60,15 +62,15 @@ namespace ManejoInventario.Repositories
                         Descuento = Convert.ToDecimal(reader["descuento"])
                     };
                     
-                    // Cargar los productos del plan
-                    plan.Productos = (await GetProductosByPlanAsync(plan.Id)).ToList();
+                    // Cargar los productos del Plan
+                    Plan.Productos = (await GetProductosByPlanAsync(Plan.Id)).ToList();
                 }
             }
             
-            return plan;
+            return Plan;
         }
 
-        public async Task<bool> InsertAsync(Plan plan)
+        public async Task<bool> InsertAsync(Planes Plan)
         {
             using (var DataBase = new DataBase())
             {
@@ -76,31 +78,31 @@ namespace ManejoInventario.Repositories
                 
                 try
                 {
-                    // Insertar el plan
+                    // Insertar el Plan
                     using var commandPlan = new MySqlCommand(
-                        "INSERT INTO plan (nombre, fecha_inicio, fecha_fin, descuento) " +
+                        "INSERT INTO Plan (nombre, fecha_inicio, fecha_fin, descuento) " +
                         "VALUES (@Nombre, @FechaInicio, @FechaFin, @Descuento); " +
                         "SELECT LAST_INSERT_ID();",
                         DataBase.Connection);
                     
-                    commandPlan.Parameters.AddWithValue("@Nombre", plan.Nombre);
-                    commandPlan.Parameters.AddWithValue("@FechaInicio", plan.Fecha_Inicio);
-                    commandPlan.Parameters.AddWithValue("@FechaFin", plan.Fecha_Fin);
-                    commandPlan.Parameters.AddWithValue("@Descuento", plan.Descuento);
+                    commandPlan.Parameters.AddWithValue("@Nombre", Plan.Nombre);
+                    commandPlan.Parameters.AddWithValue("@FechaInicio", Plan.Fecha_Inicio);
+                    commandPlan.Parameters.AddWithValue("@FechaFin", Plan.Fecha_Fin);
+                    commandPlan.Parameters.AddWithValue("@Descuento", Plan.Descuento);
                     
-                    // Obtener el ID del plan insertado
-                    var planId = Convert.ToInt32(await commandPlan.ExecuteScalarAsync());
-                    plan.Id = planId;
+                    // Obtener el ID del Plan insertado
+                    var PlanId = Convert.ToInt32(await commandPlan.ExecuteScalarAsync());
+                    Plan.Id = PlanId;
                     
-                    // Insertar las relaciones plan-producto
-                    foreach (var producto in plan.Productos)
+                    // Insertar las relaciones Plan-producto
+                    foreach (var producto in Plan.Productos)
                     {
                         using var commandRelacion = new MySqlCommand(
-                            "INSERT INTO plan_producto (plan_id, producto_id) " +
+                            "INSERT INTO Plan_producto (Plan_id, producto_id) " +
                             "VALUES (@PlanId, @ProductoId)",
                             DataBase.Connection);
                         
-                        commandRelacion.Parameters.AddWithValue("@PlanId", planId);
+                        commandRelacion.Parameters.AddWithValue("@PlanId", PlanId);
                         commandRelacion.Parameters.AddWithValue("@ProductoId", producto.Id);
                         
                         await commandRelacion.ExecuteNonQueryAsync();
@@ -117,7 +119,7 @@ namespace ManejoInventario.Repositories
             }
         }
 
-        public async Task<bool> UpdateAsync(Plan plan)
+        public async Task<bool> UpdateAsync(Planes Plan)
         {
             using (var DataBase = new DataBase())
             {
@@ -125,39 +127,39 @@ namespace ManejoInventario.Repositories
                 
                 try
                 {
-                    // Actualizar el plan
+                    // Actualizar el Plan
                     using var commandPlan = new MySqlCommand(
-                        "UPDATE plan SET nombre = @Nombre, fecha_inicio = @FechaInicio, " +
+                        "UPDATE Plan SET nombre = @Nombre, fecha_inicio = @FechaInicio, " +
                         "fecha_fin = @FechaFin, descuento = @Descuento " +
                         "WHERE id = @Id",
                         DataBase.Connection);
                     
-                    commandPlan.Parameters.AddWithValue("@Id", plan.Id);
-                    commandPlan.Parameters.AddWithValue("@Nombre", plan.Nombre);
-                    commandPlan.Parameters.AddWithValue("@FechaInicio", plan.Fecha_Inicio);
-                    commandPlan.Parameters.AddWithValue("@FechaFin", plan.Fecha_Fin);
-                    commandPlan.Parameters.AddWithValue("@Descuento", plan.Descuento);
+                    commandPlan.Parameters.AddWithValue("@Id", Plan.Id);
+                    commandPlan.Parameters.AddWithValue("@Nombre", Plan.Nombre);
+                    commandPlan.Parameters.AddWithValue("@FechaInicio", Plan.Fecha_Inicio);
+                    commandPlan.Parameters.AddWithValue("@FechaFin", Plan.Fecha_Fin);
+                    commandPlan.Parameters.AddWithValue("@Descuento", Plan.Descuento);
                     
                     await commandPlan.ExecuteNonQueryAsync();
                     
                     // Eliminar las relaciones anteriores
                     using var commandEliminar = new MySqlCommand(
-                        "DELETE FROM plan_producto WHERE plan_id = @PlanId",
+                        "DELETE FROM Plan_producto WHERE Plan_id = @PlanId",
                         DataBase.Connection);
                     
-                    commandEliminar.Parameters.AddWithValue("@PlanId", plan.Id);
+                    commandEliminar.Parameters.AddWithValue("@PlanId", Plan.Id);
                     
                     await commandEliminar.ExecuteNonQueryAsync();
                     
                     // Insertar las nuevas relaciones
-                    foreach (var producto in plan.Productos)
+                    foreach (var producto in Plan.Productos)
                     {
                         using var commandRelacion = new MySqlCommand(
-                            "INSERT INTO plan_producto (plan_id, producto_id) " +
+                            "INSERT INTO Plan_producto (Plan_id, producto_id) " +
                             "VALUES (@PlanId, @ProductoId)",
                             DataBase.Connection);
                         
-                        commandRelacion.Parameters.AddWithValue("@PlanId", plan.Id);
+                        commandRelacion.Parameters.AddWithValue("@PlanId", Plan.Id);
                         commandRelacion.Parameters.AddWithValue("@ProductoId", producto.Id);
                         
                         await commandRelacion.ExecuteNonQueryAsync();
@@ -184,16 +186,16 @@ namespace ManejoInventario.Repositories
                 {
                     // Eliminar primero las relaciones
                     using var commandRelaciones = new MySqlCommand(
-                        "DELETE FROM plan_producto WHERE plan_id = @Id",
+                        "DELETE FROM Plan_producto WHERE Plan_id = @Id",
                         DataBase.Connection);
                     
                     commandRelaciones.Parameters.AddWithValue("@Id", id);
                     
                     await commandRelaciones.ExecuteNonQueryAsync();
                     
-                    // Eliminar el plan
+                    // Eliminar el Plan
                     using var commandPlan = new MySqlCommand(
-                        "DELETE FROM plan WHERE id = @Id",
+                        "DELETE FROM Plan WHERE id = @Id",
                         DataBase.Connection);
                     
                     commandPlan.Parameters.AddWithValue("@Id", id);
@@ -212,7 +214,7 @@ namespace ManejoInventario.Repositories
         }
         
         // Métodos específicos para Plan
-        public async Task<IEnumerable<Producto>> GetProductosByPlanAsync(int planId)
+        public async Task<IEnumerable<Producto>> GetProductosByPlanAsync(int PlanId)
         {
             List<Producto> productos = new List<Producto>();
             
@@ -220,11 +222,11 @@ namespace ManejoInventario.Repositories
             {
                 using var command = new MySqlCommand(
                     "SELECT p.* FROM producto p " +
-                    "JOIN plan_producto pp ON p.id = pp.producto_id " +
-                    "WHERE pp.plan_id = @PlanId",
+                    "JOIN Plan_producto pp ON p.id = pp.producto_id " +
+                    "WHERE pp.Plan_id = @PlanId",
                     DataBase.Connection);
                 
-                command.Parameters.AddWithValue("@PlanId", planId);
+                command.Parameters.AddWithValue("@PlanId", PlanId);
                 
                 using var reader = await command.ExecuteReaderAsync();
                 
@@ -247,15 +249,15 @@ namespace ManejoInventario.Repositories
             return productos;
         }
         
-        public async Task<IEnumerable<Plan>> GetPlanesVigentesAsync()
+        public async Task<IEnumerable<Planes>> GetPlanesVigentesAsync()
         {
-            List<Plan> planes = new List<Plan>();
+            List<Planes> Planes = new List<Planes>();
             DateTime hoy = DateTime.Today;
             
             using (var DataBase = new DataBase())
             {
                 using var command = new MySqlCommand(
-                    "SELECT * FROM plan WHERE @Hoy BETWEEN fecha_inicio AND fecha_fin",
+                    "SELECT * FROM Plan WHERE @Hoy BETWEEN fecha_inicio AND fecha_fin",
                     DataBase.Connection);
                 
                 command.Parameters.AddWithValue("@Hoy", hoy);
@@ -264,7 +266,7 @@ namespace ManejoInventario.Repositories
                 
                 while (await reader.ReadAsync())
                 {
-                    var plan = new Plan
+                    var Plan = new Planes
                     {
                         Id = Convert.ToInt32(reader["id"]),
                         Nombre = reader["nombre"].ToString()!,
@@ -273,17 +275,17 @@ namespace ManejoInventario.Repositories
                         Descuento = Convert.ToDecimal(reader["descuento"])
                     };
                     
-                    planes.Add(plan);
+                    Planes.Add(Plan);
                 }
             }
             
-            // Cargar los productos para cada plan
-            foreach (var plan in planes)
+            // Cargar los productos para cada Plan
+            foreach (var Plan in Planes)
             {
-                plan.Productos = (await GetProductosByPlanAsync(plan.Id)).ToList();
+                Plan.Productos = (await GetProductosByPlanAsync(Plan.Id)).ToList();
             }
             
-            return planes;
+            return Planes;
         }
     }
 }

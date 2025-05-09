@@ -1,4 +1,5 @@
-
+using ManejoInventario.Domain.Entities;
+using MySql.Data.MySqlClient;
 using ManejoInventario.Data;
 
 
