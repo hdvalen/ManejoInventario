@@ -1,6 +1,6 @@
 using MySql.Data.MySqlClient;
 using ManejoInventario.Data;
-using ManejoInventario.Models;
+using ManejoInventario.Domain.Entities;
 
 namespace ManejoInventario.Repositories
 {
