@@ -1,0 +1,15 @@
+C:\Users\ususario\Documents\Valentina\campusland\C_chart\ManejoInventario\bin\Debug\net8.0\ManejoInventario.exe
+C:\Users\ususario\Documents\Valentina\campusland\C_chart\ManejoInventario\bin\Debug\net8.0\ManejoInventario.deps.json
+C:\Users\ususario\Documents\Valentina\campusland\C_chart\ManejoInventario\bin\Debug\net8.0\ManejoInventario.runtimeconfig.json
+C:\Users\ususario\Documents\Valentina\campusland\C_chart\ManejoInventario\bin\Debug\net8.0\ManejoInventario.dll
+C:\Users\ususario\Documents\Valentina\campusland\C_chart\ManejoInventario\bin\Debug\net8.0\ManejoInventario.pdb
+C:\Users\ususario\Documents\Valentina\campusland\C_chart\ManejoInventario\obj\Debug\net8.0\ManejoInventario.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\ususario\Documents\Valentina\campusland\C_chart\ManejoInventario\obj\Debug\net8.0\ManejoInventario.AssemblyInfoInputs.cache
+C:\Users\ususario\Documents\Valentina\campusland\C_chart\ManejoInventario\obj\Debug\net8.0\ManejoInventario.AssemblyInfo.cs
+C:\Users\ususario\Documents\Valentina\campusland\C_chart\ManejoInventario\obj\Debug\net8.0\ManejoInventario.csproj.CoreCompileInputs.cache
+C:\Users\ususario\Documents\Valentina\campusland\C_chart\ManejoInventario\obj\Debug\net8.0\ManejoInventario.sourcelink.json
+C:\Users\ususario\Documents\Valentina\campusland\C_chart\ManejoInventario\obj\Debug\net8.0\ManejoInventario.dll
+C:\Users\ususario\Documents\Valentina\campusland\C_chart\ManejoInventario\obj\Debug\net8.0\refint\ManejoInventario.dll
+C:\Users\ususario\Documents\Valentina\campusland\C_chart\ManejoInventario\obj\Debug\net8.0\ManejoInventario.pdb
+C:\Users\ususario\Documents\Valentina\campusland\C_chart\ManejoInventario\obj\Debug\net8.0\ManejoInventario.genruntimeconfig.cache
+C:\Users\ususario\Documents\Valentina\campusland\C_chart\ManejoInventario\obj\Debug\net8.0\ref\ManejoInventario.dll
