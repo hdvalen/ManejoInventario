@@ -8,19 +8,19 @@
     "net8.0": []
   },
   "packageFolders": {
-    "/home/camper/.nuget/packages/": {}
+    "C:\\Users\\ususario\\.nuget\\packages\\": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "/home/camper/Documentos/aa/ManejoInventario/ManejoInventario.csproj",
+      "projectUniqueName": "C:\\Users\\ususario\\Documents\\Valentina\\campusland\\C_chart\\ManejoInventario\\ManejoInventario.csproj",
       "projectName": "ManejoInventario",
-      "projectPath": "/home/camper/Documentos/aa/ManejoInventario/ManejoInventario.csproj",
-      "packagesPath": "/home/camper/.nuget/packages/",
-      "outputPath": "/home/camper/Documentos/aa/ManejoInventario/obj/",
+      "projectPath": "C:\\Users\\ususario\\Documents\\Valentina\\campusland\\C_chart\\ManejoInventario\\ManejoInventario.csproj",
+      "packagesPath": "C:\\Users\\ususario\\.nuget\\packages\\",
+      "outputPath": "C:\\Users\\ususario\\Documents\\Valentina\\campusland\\C_chart\\ManejoInventario\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
-        "/home/camper/.nuget/NuGet/NuGet.Config"
+        "C:\\Users\\ususario\\AppData\\Roaming\\NuGet\\NuGet.Config"
       ],
       "originalTargetFrameworks": [
         "net8.0"
@@ -64,7 +64,7 @@
             "privateAssets": "all"
           }
         },
-        "runtimeIdentifierGraphPath": "/usr/share/dotnet/sdk/8.0.408/PortableRuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.408/PortableRuntimeIdentifierGraph.json"
       }
     }
   }
