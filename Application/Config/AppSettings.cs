@@ -2,7 +2,7 @@ namespace ManejoInventario.Application.Config
 {
     public static class AppSettings
     {
-        public static string ConnectionString = "Server=localhost;Database=gestionInventario;Uid=campus2023;Pwd=campus2023;";
+        public static string ConnectionString = "Server=localhost;Database=gestionInventario;Uid=root;Pwd=root;";
         
         // Configuraciones adicionales de la aplicación
         public static int NumPaginacion = 10;
