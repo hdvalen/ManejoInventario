@@ -90,7 +90,7 @@ namespace ManejoInventario.Application.UI
             }
             catch (Exception ex)
             {
-                MenuPrincipal.MostrarMensaje($"\nError al listar compras: {ex.Message}", ConsoleColor.Red);
+                MenuPrincipal.MostrarMensaje($"\n ⚠ Error al listar compras: {ex.Message}", ConsoleColor.Red);
             }
             
             Console.Write("\nPresione cualquier tecla para continuar...");
@@ -143,7 +143,7 @@ namespace ManejoInventario.Application.UI
             }
             catch (Exception ex)
             {
-                MenuPrincipal.MostrarMensaje($"\nError al obtener detalle de la compra: {ex.Message}", ConsoleColor.Red);
+                MenuPrincipal.MostrarMensaje($"\n ⚠ Error al obtener detalle de la compra: {ex.Message}", ConsoleColor.Red);
             }
             
             Console.Write("\nPresione cualquier tecla para continuar...");
@@ -250,7 +250,7 @@ namespace ManejoInventario.Application.UI
                     
                     if (resultado)
                     {
-                        MenuPrincipal.MostrarMensaje("\nCompra completada correctamente.", ConsoleColor.Green);
+                        MenuPrincipal.MostrarMensaje("\n ✔ Compra completada correctamente.", ConsoleColor.Green);
                     }
                     else
                     {
@@ -264,7 +264,7 @@ namespace ManejoInventario.Application.UI
             }
             catch (Exception ex)
             {
-                MenuPrincipal.MostrarMensaje($"\nError al registrar la compra: {ex.Message}", ConsoleColor.Red);
+                MenuPrincipal.MostrarMensaje($"\n ⚠ Error al registrar la compra: {ex.Message}", ConsoleColor.Red);
             }
             
             Console.Write("\nPresione cualquier tecla para continuar...");

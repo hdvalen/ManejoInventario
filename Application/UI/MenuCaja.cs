@@ -95,7 +95,7 @@ namespace ManejoInventario.Application.UI
                     
                     if (resultado)
                     {
-                        MenuPrincipal.MostrarMensaje("\nApertura de caja completada.", ConsoleColor.Green);
+                        MenuPrincipal.MostrarMensaje("\n ✔ Apertura de caja completada.", ConsoleColor.Green);
                     }
                     else
                     {
@@ -105,7 +105,7 @@ namespace ManejoInventario.Application.UI
             }
             catch (Exception ex)
             {
-                MenuPrincipal.MostrarMensaje($"\nError al registrar apertura de caja: {ex.Message}", ConsoleColor.Red);
+                MenuPrincipal.MostrarMensaje($"\n ⚠ Error al registrar apertura de caja: {ex.Message}", ConsoleColor.Red);
             }
             
             Console.Write("\nPresione cualquier tecla para continuar...");
@@ -127,7 +127,7 @@ namespace ManejoInventario.Application.UI
                 
                 if (yaCerrado)
                 {
-                    MenuPrincipal.MostrarMensaje("\nYa se ha realizado el cierre de caja para hoy.", ConsoleColor.DarkMagenta);
+                    MenuPrincipal.MostrarMensaje("\n ✔ Ya se ha realizado el cierre de caja para hoy.", ConsoleColor.DarkMagenta);
                 }
                 else
                 {
@@ -171,7 +171,7 @@ namespace ManejoInventario.Application.UI
                         
                         if (resultado)
                         {
-                            MenuPrincipal.MostrarMensaje("\nCierre de caja completado.", ConsoleColor.Green);
+                            MenuPrincipal.MostrarMensaje("\n ✔ Cierre de caja completado.", ConsoleColor.Green);
                         }
                         else
                         {
@@ -182,7 +182,7 @@ namespace ManejoInventario.Application.UI
             }
             catch (Exception ex)
             {
-                MenuPrincipal.MostrarMensaje($"\nError al registrar cierre de caja: {ex.Message}", ConsoleColor.Red);
+                MenuPrincipal.MostrarMensaje($"\n ⚠ Error al registrar cierre de caja: {ex.Message}", ConsoleColor.Red);
             }
             
             Console.Write("\nPresione cualquier tecla para continuar...");
@@ -226,7 +226,7 @@ namespace ManejoInventario.Application.UI
                 
                 if (resultado)
                 {
-                    MenuPrincipal.MostrarMensaje("\nMovimiento completado.", ConsoleColor.Green);
+                    MenuPrincipal.MostrarMensaje("\n ✔ Movimiento completado.", ConsoleColor.Green);
                 }
                 else
                 {
@@ -235,7 +235,7 @@ namespace ManejoInventario.Application.UI
             }
             catch (Exception ex)
             {
-                MenuPrincipal.MostrarMensaje($"\nError al registrar movimiento: {ex.Message}", ConsoleColor.Red);
+                MenuPrincipal.MostrarMensaje($"\n ⚠ Error al registrar movimiento: {ex.Message}", ConsoleColor.Red);
             }
             
             Console.Write("\nPresione cualquier tecla para continuar...");
@@ -259,7 +259,7 @@ namespace ManejoInventario.Application.UI
             }
             catch (Exception ex)
             {
-                MenuPrincipal.MostrarMensaje($"\nError al obtener movimientos: {ex.Message}", ConsoleColor.Red);
+                MenuPrincipal.MostrarMensaje($"\n ⚠ Error al obtener movimientos: {ex.Message}", ConsoleColor.Red);
             }
             
             Console.Write("\nPresione cualquier tecla para continuar...");
@@ -281,7 +281,7 @@ namespace ManejoInventario.Application.UI
             }
             catch (Exception ex)
             {
-                MenuPrincipal.MostrarMensaje($"\nError al obtener saldo: {ex.Message}", ConsoleColor.Red);
+                MenuPrincipal.MostrarMensaje($"\n ⚠ Error al obtener saldo: {ex.Message}", ConsoleColor.Red);
             }
             
             Console.Write("\nPresione cualquier tecla para continuar...");

@@ -104,7 +104,7 @@ namespace ManejoInventario.Application.UI
             }
             catch (Exception ex)
             {
-                MenuPrincipal.MostrarMensaje($"\nError al listar planes: {ex.Message}", ConsoleColor.Red);
+                MenuPrincipal.MostrarMensaje($"\n ⚠ Error al listar planes: {ex.Message}", ConsoleColor.Red);
             }
             
             Console.Write("\nPresione cualquier tecla para continuar...");
@@ -162,7 +162,7 @@ namespace ManejoInventario.Application.UI
             }
             catch (Exception ex)
             {
-                MenuPrincipal.MostrarMensaje($"\nError al obtener detalle del plan: {ex.Message}", ConsoleColor.Red);
+                MenuPrincipal.MostrarMensaje($"\n ⚠ Error al obtener detalle del plan: {ex.Message}", ConsoleColor.Red);
             }
             
             Console.Write("\nPresione cualquier tecla para continuar...");
@@ -183,7 +183,7 @@ namespace ManejoInventario.Application.UI
                 // Validar que la fecha de fin sea posterior a la de inicio
                 if (fechaFin < fechaInicio)
                 {
-                    MenuPrincipal.MostrarMensaje("\nError: La fecha de fin debe ser posterior a la fecha de inicio.", ConsoleColor.Red);
+                    MenuPrincipal.MostrarMensaje("\n ⚠ Error: La fecha de fin debe ser posterior a la fecha de inicio.", ConsoleColor.Red);
                     Console.ReadKey();
                     return;
                 }
@@ -199,7 +199,7 @@ namespace ManejoInventario.Application.UI
                         break;
                     }
                     
-                    MenuPrincipal.MostrarMensaje("Error: Debe ingresar un número entre 0 y 100.", ConsoleColor.Red);
+                    MenuPrincipal.MostrarMensaje("⚠ Error: Debe ingresar un número entre 0 y 100.", ConsoleColor.Red);
                 }
                 
                 var plan = new Planes
@@ -231,7 +231,7 @@ namespace ManejoInventario.Application.UI
                 
                 if (resultado)
                 {
-                    MenuPrincipal.MostrarMensaje("\nPlan promocional creado correctamente.", ConsoleColor.Green);
+                    MenuPrincipal.MostrarMensaje("\n ✔ Plan promocional creado correctamente.", ConsoleColor.Green);
                 }
                 else
                 {
@@ -240,7 +240,7 @@ namespace ManejoInventario.Application.UI
             }
             catch (Exception ex)
             {
-                MenuPrincipal.MostrarMensaje($"\nError al crear el plan: {ex.Message}", ConsoleColor.Red);
+                MenuPrincipal.MostrarMensaje($"\n ⚠ Error al crear el plan: {ex.Message}", ConsoleColor.Red);
             }
             
             Console.Write("\nPresione cualquier tecla para continuar...");
@@ -289,7 +289,7 @@ namespace ManejoInventario.Application.UI
                     // Validar que la fecha de fin sea posterior a la de inicio
                     if (plan.Fecha_Fin < plan.Fecha_Inicio)
                     {
-                        MenuPrincipal.MostrarMensaje("\nError: La fecha de fin debe ser posterior a la fecha de inicio.", ConsoleColor.Red);
+                        MenuPrincipal.MostrarMensaje("\n ⚠ Error: La fecha de fin debe ser posterior a la fecha de inicio.", ConsoleColor.Red);
                         Console.ReadKey();
                         return;
                     }
@@ -315,7 +315,7 @@ namespace ManejoInventario.Application.UI
                     
                     if (resultado)
                     {
-                        MenuPrincipal.MostrarMensaje("\nPlan promocional actualizado correctamente.", ConsoleColor.Green);
+                        MenuPrincipal.MostrarMensaje("\n ✔ Plan promocional actualizado correctamente.", ConsoleColor.Green);
                     }
                     else
                     {
@@ -325,7 +325,7 @@ namespace ManejoInventario.Application.UI
             }
             catch (Exception ex)
             {
-                MenuPrincipal.MostrarMensaje($"\nError al modificar el plan: {ex.Message}", ConsoleColor.Red);
+                MenuPrincipal.MostrarMensaje($"\n ⚠ Error al modificar el plan: {ex.Message}", ConsoleColor.Red);
             }
             
             Console.Write("\nPresione cualquier tecla para continuar...");
@@ -362,7 +362,7 @@ namespace ManejoInventario.Application.UI
                         
                         if (resultado)
                         {
-                            MenuPrincipal.MostrarMensaje("\nPlan  eliminado correctamente.", ConsoleColor.Green);
+                            MenuPrincipal.MostrarMensaje("\n ✔ Plan  eliminado correctamente.", ConsoleColor.Green);
                         }
                         else
                         {
@@ -377,7 +377,7 @@ namespace ManejoInventario.Application.UI
             }
             catch (Exception ex)
             {
-                MenuPrincipal.MostrarMensaje($"\nError al eliminar el plan: {ex.Message}", ConsoleColor.Red);
+                MenuPrincipal.MostrarMensaje($"\n ⚠ Error al eliminar el plan: {ex.Message}", ConsoleColor.Red);
             }
             
             Console.Write("\nPresione cualquier tecla para continuar...");
@@ -434,7 +434,7 @@ namespace ManejoInventario.Application.UI
             }
             catch (Exception ex)
             {
-                MenuPrincipal.MostrarMensaje($"\nError al obtener planes vigentes: {ex.Message}", ConsoleColor.Red);
+                MenuPrincipal.MostrarMensaje($"\n ⚠ Error al obtener planes vigentes: {ex.Message}", ConsoleColor.Red);
             }
             
             Console.Write("\nPresione cualquier tecla para continuar...");

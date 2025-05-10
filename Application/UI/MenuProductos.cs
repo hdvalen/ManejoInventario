@@ -92,7 +92,7 @@ namespace ManejoInventario.Application.UI
             }
             catch (Exception ex)
             {
-                MenuPrincipal.MostrarMensaje($"\nError al listar productos: {ex.Message}", ConsoleColor.Red);
+                MenuPrincipal.MostrarMensaje($"\n ⚠ Error al listar productos: {ex.Message}", ConsoleColor.Red);
             }
             
             Console.Write("\nPresione cualquier tecla para continuar...");
@@ -139,7 +139,7 @@ namespace ManejoInventario.Application.UI
             }
             catch (Exception ex)
             {
-                MenuPrincipal.MostrarMensaje($"\nError al buscar el producto: {ex.Message}", ConsoleColor.Red);
+                MenuPrincipal.MostrarMensaje($"\n ⚠ Error al buscar el producto: {ex.Message}", ConsoleColor.Red);
             }
             
             Console.Write("\nPresione cualquier tecla para continuar...");
@@ -159,7 +159,7 @@ namespace ManejoInventario.Application.UI
                 var existe = await _productoRepository.GetByIdAsync(id);
                 if (existe != null)
                 {
-                    MenuPrincipal.MostrarMensaje("\nError: Producto ya existente.", ConsoleColor.Red);
+                    MenuPrincipal.MostrarMensaje("\n ⚠ Error: Producto ya existente.", ConsoleColor.Red);
                     Console.ReadKey();
                     return;
                 }
@@ -186,7 +186,7 @@ namespace ManejoInventario.Application.UI
                 
                 if (resultado)
                 {
-                    MenuPrincipal.MostrarMensaje("\nProducto registrado correctamente.", ConsoleColor.Green);
+                    MenuPrincipal.MostrarMensaje("\n ✔ Producto registrado correctamente.", ConsoleColor.Green);
                 }
                 else
                 {
@@ -195,7 +195,7 @@ namespace ManejoInventario.Application.UI
             }
             catch (Exception ex)
             {
-                MenuPrincipal.MostrarMensaje($"\nError al registrar el producto: {ex.Message}", ConsoleColor.Red);
+                MenuPrincipal.MostrarMensaje($"\n ⚠ Error al registrar el producto: {ex.Message}", ConsoleColor.Red);
             }
             
             Console.Write("\nPresione cualquier tecla para continuar...");
@@ -260,7 +260,7 @@ namespace ManejoInventario.Application.UI
                     
                     if (resultado)
                     {
-                        MenuPrincipal.MostrarMensaje("\nProducto actualizado correctamente.", ConsoleColor.Green);
+                        MenuPrincipal.MostrarMensaje("\n ✔ Producto actualizado correctamente.", ConsoleColor.Green);
                     }
                     else
                     {
@@ -270,7 +270,7 @@ namespace ManejoInventario.Application.UI
             }
             catch (Exception ex)
             {
-                MenuPrincipal.MostrarMensaje($"\nError al actualizar el producto: {ex.Message}", ConsoleColor.Red);
+                MenuPrincipal.MostrarMensaje($"\n ⚠ Error al actualizar el producto: {ex.Message}", ConsoleColor.Red);
             }
             
             Console.Write("\nPresione cualquier tecla para continuar...");
@@ -304,7 +304,7 @@ namespace ManejoInventario.Application.UI
                         
                         if (resultado)
                         {
-                            MenuPrincipal.MostrarMensaje("\nProducto eliminado correctamente.", ConsoleColor.Green);
+                            MenuPrincipal.MostrarMensaje("\n ✔ Producto eliminado correctamente.", ConsoleColor.Green);
                         }
                         else
                         {
@@ -319,7 +319,7 @@ namespace ManejoInventario.Application.UI
             }
             catch (Exception ex)
             {
-                MenuPrincipal.MostrarMensaje($"\nError al eliminar el producto: {ex.Message}", ConsoleColor.Red);
+                MenuPrincipal.MostrarMensaje($"\n ⚠ Error al eliminar el producto: {ex.Message}", ConsoleColor.Red);
             }
             
             Console.Write("\nPresione cualquier tecla para continuar...");
@@ -364,7 +364,7 @@ namespace ManejoInventario.Application.UI
             }
             catch (Exception ex)
             {
-                MenuPrincipal.MostrarMensaje($"\nError al buscar productos con stock bajo: {ex.Message}", ConsoleColor.Red);
+                MenuPrincipal.MostrarMensaje($"\n ⚠ Error al buscar productos con stock bajo: {ex.Message}", ConsoleColor.Red);
             }
             
             Console.Write("\nPresione cualquier tecla para continuar...");

@@ -1,13 +1,13 @@
-using ManejoInventario.Application.UI;
+using ManejoInventario.Application.UI; 
 using ManejoInventario.Domain.Entities;
 using ManejoInventario.Repositories;
+
 
 namespace ManejoInventario.UI
 {
     public class MenuProveedor
     {
         private readonly Proveedor_Repository _proveedorRepository;
-
         public MenuProveedor()
         {
             _proveedorRepository = new Proveedor_Repository();
@@ -20,7 +20,6 @@ namespace ManejoInventario.UI
             {
                 Console.Clear();
                 MenuPrincipal.MostrarEncabezado("GESTION DE PROVEEDORES");
-                Console.WriteLine("========================================");
                 Console.WriteLine("Menu Proveedor");
                 Console.WriteLine("1. Listar Proveedores");
                 Console.WriteLine("2. Agregar Proveedor");
@@ -65,7 +64,9 @@ namespace ManejoInventario.UI
                 var proveedor = await _proveedorRepository.GetAllAsync(); 
                 if(!proveedor.Any())
                 {
-                    Console.WriteLine("No hay proveedores registrados.", ConsoleColor.DarkMagenta);
+                    Console.ForegroundColor = ConsoleColor.DarkMagenta;
+                    Console.WriteLine(" No hay proveedores registrados.");
+                    Console.ResetColor();
                     return;
                 }
               else{
@@ -79,7 +80,7 @@ namespace ManejoInventario.UI
             }
             catch (Exception ex)
             {
-               MenuPrincipal.MostrarMensaje($"\nError al listar productos: {ex.Message}", ConsoleColor.Red);
+               MenuPrincipal.MostrarMensaje($"\n ⚠ Error al listar productos: {ex.Message}", ConsoleColor.Red);
             }
             Console.Write("\nPresione cualquier tecla para continuar...");
             Console.ReadKey();
@@ -105,11 +106,11 @@ namespace ManejoInventario.UI
             try
             {
                 await _proveedorRepository.InsertAsync(proveedor);
-                MenuPrincipal.MostrarMensaje("Proveedor agregado exitosamente.", ConsoleColor.Green);
+                MenuPrincipal.MostrarMensaje(" ✔ Proveedor agregado exitosamente.", ConsoleColor.Green);
             }
             catch (Exception ex)
             {
-                MenuPrincipal.MostrarMensaje($"Error al agregar proveedor: {ex.Message}", ConsoleColor.Red);
+                MenuPrincipal.MostrarMensaje($" ⚠ Error al agregar proveedor: {ex.Message}", ConsoleColor.Red);
             }
 
             Console.Write("\nPresione cualquier tecla para continuar...");
@@ -142,11 +143,11 @@ namespace ManejoInventario.UI
             try
             {
                 await _proveedorRepository.UpdateAsync(proveedor);
-                MenuPrincipal.MostrarMensaje("Proveedor editado exitosamente.", ConsoleColor.Green);
+                MenuPrincipal.MostrarMensaje(" ✔ Proveedor editado exitosamente.", ConsoleColor.Green);
             }
             catch (Exception ex)
             {
-                MenuPrincipal.MostrarMensaje($"Error al editar proveedor: {ex.Message}", ConsoleColor.Red);
+                MenuPrincipal.MostrarMensaje($" ⚠ Error al editar proveedor: {ex.Message}", ConsoleColor.Red);
             }
 
             Console.Write("\nPresione cualquier tecla para continuar...");
@@ -162,11 +163,11 @@ namespace ManejoInventario.UI
             try
             {
                 await _proveedorRepository.DeleteAsync(id);
-                MenuPrincipal.MostrarMensaje("Proveedor eliminado exitosamente.", ConsoleColor.Green);
+                MenuPrincipal.MostrarMensaje(" ✔ Proveedor eliminado exitosamente.", ConsoleColor.Green);
             }
             catch (Exception ex)
             {
-                MenuPrincipal.MostrarMensaje($"Error al eliminar proveedor: {ex.Message}", ConsoleColor.Red);
+                MenuPrincipal.MostrarMensaje($" ⚠ Error al eliminar proveedor: {ex.Message}", ConsoleColor.Red);
             }
 
             Console.Write("\nPresione cualquier tecla para continuar...");
