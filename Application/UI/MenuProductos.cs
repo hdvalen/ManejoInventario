@@ -20,8 +20,6 @@ namespace ManejoInventario.Application.UI
             {
                 Console.Clear();
                 MenuPrincipal.MostrarEncabezado("GESTIÓN DE PRODUCTOS");
-                
-                Console.WriteLine("\nOPCIONES:");
                 Console.WriteLine("1. Mostrar Productos");
                 Console.WriteLine("2. Buscar Producto");
                 Console.WriteLine("3. Nuevo Producto");
@@ -57,7 +55,7 @@ namespace ManejoInventario.Application.UI
                         regresar = true;
                         break;
                     default:
-                        MenuPrincipal.MostrarMensaje("Opción no válida. Intente nuevamente.", ConsoleColor.DarkMagenta);
+                        MenuPrincipal.MostrarMensaje("Opción no válida. Intente de nuevo.", ConsoleColor.DarkMagenta);
                         Console.ReadKey();
                         break;
                 }

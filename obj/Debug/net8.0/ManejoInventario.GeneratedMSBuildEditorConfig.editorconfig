@@ -8,6 +8,6 @@ build_property.PlatformNeutralAssembly =
 build_property.EnforceExtendedAnalyzerRules = 
 build_property._SupportedPlatformList = Linux,macOS,Windows
 build_property.RootNamespace = ManejoInventario
-build_property.ProjectDir = /home/camper/Escritorio/ManejoInventario/
+build_property.ProjectDir = C:\Users\ususario\Documents\Valentina\campusland\C_chart\ManejoInventario\
 build_property.EnableComHosting = 
 build_property.EnableGeneratedComInterfaceComImportInterop = 
