@@ -10,6 +10,8 @@ namespace ManejoInventario.Application.UI
         private readonly MenuCaja _menuCaja;
         private readonly MenuPlanes _menuPlanes;
         private readonly MenuProveedor _menuProveedor;
+        private readonly MenuTercero _menuTercero;
+        private readonly MenuCliente _menuCliente;
         
         public MenuPrincipal()
         {
@@ -19,6 +21,8 @@ namespace ManejoInventario.Application.UI
             _menuCaja = new MenuCaja();
             _menuPlanes = new MenuPlanes();
             _menuProveedor = new MenuProveedor();
+            _menuTercero = new MenuTercero();
+            _menuCliente = new MenuCliente();
         }
         
         public void MostrarMenu()
@@ -35,8 +39,10 @@ namespace ManejoInventario.Application.UI
                 Console.WriteLine("2. Manejo de Ventas");
                 Console.WriteLine("3. Manejo de Compras");
                 Console.WriteLine("4. Manejo de Proveedores");
-                Console.WriteLine("5. Movimientos de Caja");
-                Console.WriteLine("6. Manejo de Planes Promocionales");
+                Console.WriteLine("5. Manejo de Terceros");
+                Console.WriteLine("6. Manejo de Clientes");
+                Console.WriteLine("7. Movimientos de Caja");
+                Console.WriteLine("8. Manejo de Planes Promocionales");
                 Console.WriteLine("0. Salir");
                 
                 Console.Write("\nSeleccione una opción: ");
@@ -57,9 +63,15 @@ namespace ManejoInventario.Application.UI
                         _menuProveedor.MostrarMenu();
                         break;
                     case "5":
-                        _menuCaja.MostrarMenu();
+                        _menuTercero.MostrarMenu();
                         break;
                     case "6":
+                        _menuCliente.MostrarMenu();
+                        break;
+                    case "7":
+                        _menuCaja.MostrarMenu();
+                        break;
+                    case "8":
                         _menuPlanes.MostrarMenu();
                         break;
                     case "0":
@@ -110,7 +122,7 @@ namespace ManejoInventario.Application.UI
                     return valor;
                 }
                 
-                MostrarMensaje("Error: Debe ingresar un número entero positivo.", ConsoleColor.Red);
+                MostrarMensaje("⚠ Error: Debe ingresar un número entero positivo.", ConsoleColor.Red);
             }
         }
         
@@ -124,7 +136,7 @@ namespace ManejoInventario.Application.UI
                     return valor;
                 }
                 
-                MostrarMensaje("Error: Debe ingresar un número decimal positivo.", ConsoleColor.Red);
+                MostrarMensaje("⚠ Error: Debe ingresar un número decimal positivo.", ConsoleColor.Red);
             }
         }
         
@@ -138,7 +150,7 @@ namespace ManejoInventario.Application.UI
                     return fecha;
                 }
                 
-                MostrarMensaje("Error: Formato de fecha incorrecto. Use DD/MM/AAAA.", ConsoleColor.Red);
+                MostrarMensaje("⚠ Error: Formato de fecha incorrecto. Use DD/MM/AAAA.", ConsoleColor.Red);
             }
         }
     }

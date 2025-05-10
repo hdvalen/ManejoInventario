@@ -92,7 +92,7 @@ namespace ManejoInventario.Application.UI
             }
             catch (Exception ex)
             {
-                MenuPrincipal.MostrarMensaje($"\nError al listar ventas: {ex.Message}", ConsoleColor.Red);
+                MenuPrincipal.MostrarMensaje($"\n ⚠ Error al listar ventas: {ex.Message}", ConsoleColor.Red);
             }
             
             Console.Write("\nPresione cualquier tecla para continuar...");
@@ -144,7 +144,7 @@ namespace ManejoInventario.Application.UI
             }
             catch (Exception ex)
             {
-                MenuPrincipal.MostrarMensaje($"\nError al obtener detalle de la venta: {ex.Message}", ConsoleColor.Red);
+                MenuPrincipal.MostrarMensaje($"\n ⚠ Error al obtener detalle de la venta: {ex.Message}", ConsoleColor.Red);
             }
             
             Console.Write("\nPresione cualquier tecla para continuar...");
@@ -227,7 +227,7 @@ namespace ManejoInventario.Application.UI
                     // Verificar que haya suficiente stock
                     if (cantidad > producto.Stock)
                     {
-                        MenuPrincipal.MostrarMensaje($"\nError: Stock insuficiente. Solo hay {producto.Stock} unidades disponibles.", ConsoleColor.Red);
+                        MenuPrincipal.MostrarMensaje($"\n ⚠ Error: Stock insuficiente. Solo hay {producto.Stock} unidades disponibles.", ConsoleColor.Red);
                         Console.ReadKey();
                         continue;
                     }
@@ -305,7 +305,7 @@ namespace ManejoInventario.Application.UI
                     
                     if (resultado)
                     {
-                        MenuPrincipal.MostrarMensaje("\nVenta registrada correctamente.", ConsoleColor.Green);
+                        MenuPrincipal.MostrarMensaje("\n ✔ Venta registrada correctamente.", ConsoleColor.Green);
                         Console.WriteLine($"Número de factura: {venta.FacturaId}");
                     }
                     else
@@ -320,7 +320,7 @@ namespace ManejoInventario.Application.UI
             }
             catch (Exception ex)
             {
-                MenuPrincipal.MostrarMensaje($"\nError al registrar la venta: {ex.Message}", ConsoleColor.Red);
+                MenuPrincipal.MostrarMensaje($"\n ⚠ Error al registrar la venta: {ex.Message}", ConsoleColor.Red);
             }
             
             Console.Write("\nPresione cualquier tecla para continuar...");
