@@ -34,6 +34,8 @@ Para ejecutar este sistema necesitarás tener instalado:
 
 4. Para insertar datos (inserts.sql)
 
+5. En el archivo Application/config/AppSettings.cs  se edita el nombre y la contraseña del MySql
+
 ## 🔨 Compilación
 
 Ya creada la Base de datos, para compilar el proyecto:
