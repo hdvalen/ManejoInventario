@@ -34,8 +34,8 @@ namespace ManejoInventario.Repositories
                     {
                         Id = Convert.ToInt32(reader["empleado_id"]),
                         TerceroId = reader["tercero_id"].ToString()!,
-                        Fecha_Ingreso = Convert.ToDateTime(reader["fecha_contratacion"]),
-                        Salario_Base = Convert.ToDecimal(reader["salario"]),
+                        Fecha_Ingreso = Convert.ToDateTime(reader["fecha_ingreso"]),
+                        Salario_Base = Convert.ToDouble(reader["salario_base"]),
                         Tercero = new Tercero
                         {
                             Id = reader["tercero_id"].ToString()!,
@@ -67,8 +67,8 @@ namespace ManejoInventario.Repositories
                     {
                         Id = Convert.ToInt32(reader["id"]),
                         TerceroId = reader["tercero_id"].ToString()!,
-                        Fecha_Ingreso = Convert.ToDateTime(reader["fecha_contratacion"]),
-                        Salario_Base = Convert.ToDecimal(reader["salario"])
+                        Fecha_Ingreso = Convert.ToDateTime(reader["fecha_ingreso"]),
+                        Salario_Base = Convert.ToDouble(reader["salario_base"])
                     };
                 }
             }
@@ -81,10 +81,10 @@ namespace ManejoInventario.Repositories
         {
             using (var DataBase = new DataBase())
             {
-                using var command = new MySqlCommand("INSERT INTO empleado (tercero_id, fecha_contratacion, salario) VALUES (@TerceroId, @Fecha_Contratacion, @Salario)", DataBase.Connection);
+                using var command = new MySqlCommand("INSERT INTO empleado (tercero_id, fecha_ingreso, salario_base) VALUES (@TerceroId, @Fecha_ingreso, @Salario_base)", DataBase.Connection);
                 command.Parameters.AddWithValue("@TerceroId", entity.TerceroId);
-                command.Parameters.AddWithValue("@Fecha_Contratacion", entity.Fecha_Ingreso);
-                command.Parameters.AddWithValue("@Salario", entity.Salario_Base);
+                command.Parameters.AddWithValue("@Fecha_ingreso", entity.Fecha_Ingreso);
+                command.Parameters.AddWithValue("@Salario_base", entity.Salario_Base);
 
                 return await command.ExecuteNonQueryAsync() > 0;
             }
@@ -95,11 +95,11 @@ namespace ManejoInventario.Repositories
         {
             using (var DataBase = new DataBase())
             {
-                using var command = new MySqlCommand("UPDATE empleado SET tercero_id = @TerceroId, fecha_contratacion = @Fecha_Contratacion, salario = @Salario WHERE id = @Id", DataBase.Connection);
+                using var command = new MySqlCommand("UPDATE empleado SET tercero_id = @TerceroId, fecha_ingreso = @Fecha_ingreso, salario_base = @Salario WHERE id = @Id", DataBase.Connection);
                 command.Parameters.AddWithValue("@Id", entity.Id);
                 command.Parameters.AddWithValue("@TerceroId", entity.TerceroId);
-                command.Parameters.AddWithValue("@Fecha_Contratacion", entity.Fecha_Ingreso);
-                command.Parameters.AddWithValue("@Salario", entity.Salario_Base);
+                command.Parameters.AddWithValue("@Fecha_ingreso", entity.Fecha_Ingreso);
+                command.Parameters.AddWithValue("@Salario_base", entity.Salario_Base);
 
                 return await command.ExecuteNonQueryAsync() > 0;
             }

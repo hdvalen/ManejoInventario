@@ -61,11 +61,11 @@ namespace ManejoInventario.UI
             var empleados = await _empleadoRepository.GetAllAsync();
             Console.Clear();
             MenuPrincipal.MostrarEncabezado("LISTA DE EMPLEADOS");
+            Console.WriteLine("ID\tidTercero\tFecha Ingreso\t\tSalario");
             Console.WriteLine(new string('-', 80));
-            Console.WriteLine("ID\tidTercero\tFecha Contratación\tSalario");
             foreach (var empleado in empleados)
             {
-                Console.WriteLine($"{empleado.Id}\t{empleado.TerceroId}\t{empleado.Fecha_Ingreso.ToShortDateString()}\t{empleado.Salario_Base}");
+                Console.WriteLine($"{empleado.Id}\t{empleado.TerceroId}\t\t{empleado.Fecha_Ingreso.ToShortDateString()}\t\t{empleado.Salario_Base}");
             }
             Console.WriteLine("Presione cualquier tecla para continuar...");
             Console.ReadKey();

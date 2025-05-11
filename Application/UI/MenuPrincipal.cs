@@ -12,6 +12,7 @@ namespace ManejoInventario.Application.UI
         private readonly MenuProveedor _menuProveedor;
         private readonly MenuTercero _menuTercero;
         private readonly MenuCliente _menuCliente;
+        private readonly MenuEmpleado _menuEmpleado;
         
         public MenuPrincipal()
         {
@@ -23,6 +24,7 @@ namespace ManejoInventario.Application.UI
             _menuProveedor = new MenuProveedor();
             _menuTercero = new MenuTercero();
             _menuCliente = new MenuCliente();
+            _menuEmpleado = new MenuEmpleado();
         }
         
         public void MostrarMenu()
@@ -41,8 +43,9 @@ namespace ManejoInventario.Application.UI
                 Console.WriteLine("4. Manejo de Proveedores");
                 Console.WriteLine("5. Manejo de Terceros");
                 Console.WriteLine("6. Manejo de Clientes");
-                Console.WriteLine("7. Movimientos de Caja");
-                Console.WriteLine("8. Manejo de Planes Promocionales");
+                Console.WriteLine("7. Manejo de Empleados");
+                Console.WriteLine("8. Movimientos de Caja");
+                Console.WriteLine("9. Manejo de Planes Promocionales");
                 Console.WriteLine("0. Salir");
                 
                 Console.Write("\nSeleccione una opción: ");
@@ -69,9 +72,12 @@ namespace ManejoInventario.Application.UI
                         _menuCliente.MostrarMenu();
                         break;
                     case "7":
-                        _menuCaja.MostrarMenu();
+                        _menuEmpleado.MostrarMenu();
                         break;
                     case "8":
+                        _menuCaja.MostrarMenu();
+                    break;
+                    case "9":
                         _menuPlanes.MostrarMenu();
                         break;
                     case "0":
