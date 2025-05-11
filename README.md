@@ -43,6 +43,8 @@ Ya creada la Base de datos, para compilar el proyecto:
 ```bash
  dotnet run
 ```
+## Git Flow
+![image](https://github.com/user-attachments/assets/756951da-aa40-45d8-930d-044c46902bf6)
 
 ## ❓ Solución de Problemas
 
